@@ -10,6 +10,12 @@ macOS & Others unix just download and install on [docker official site.](https:/
 
 ## Usage
 
+### Build php-fpm with Containers mysqli and intl extension enabled
+
+```
+$ docker-compose build
+```
+
 ### Create and Start Containers
 
 ```
@@ -49,7 +55,7 @@ phpmyadmin: http://localhost/phpmyadmin
 ### Overall structures
 
 ```
-├── mysql
+├── mysql (mariaDB)
 │   └── conf    --- MySQL config
 ├── nginx
 │   ├── conf    --- Nginx configuration folder
@@ -69,5 +75,5 @@ Containers are talking each other by using container's name, for example if I wa
 
 
 ## Special Thanks
-
-I was built this project from scratch for a practice with docker and thanks his stureture and idea from nuuneoi https://github.com/nuuneoi/lemp-docker-starter-kit
+I was built this project by forking from https://github.com/ayuthmang/LEMP-docker-codeigniter-starter-kit 
+This build has update phpMyAdmin(5.0.4), phpfpm(7.4), codeigniter(4.1.1) and change mysql to mariaDB(10.5.8)
