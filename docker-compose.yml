@@ -1,7 +1,7 @@
 version: '2.3'
 services:
   nginx:
-    image: nginx:1.15.5
+    image: nginx:1.19.6
     container_name: lemp-nginx
     ports:
       - "80:80"
@@ -15,14 +15,14 @@ services:
       - lemp-network
       
   phpfpm:
-    image: blacksourcez/php7-fpm
+    build: .
     container_name: lemp-phpfpm
     expose: 
       - "9000"
     volumes:
-      - ./phpfpm/conf/fpm/php.ini:/etc/php/7.0/fpm/php.ini
-      - ./phpfpm/conf/fpm/php-fpm.conf:/etc/php/7.0/fpm/php-fpm.conf
-      - ./phpfpm/conf/cli/php.ini:/etc/php/7.0/cli/php.ini
+      - ./phpfpm/conf/fpm/php.ini:/etc/php/7.4/fpm/php.ini
+      - ./phpfpm/conf/fpm/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf
+      - ./phpfpm/conf/cli/php.ini:/etc/php/7.4/cli/php.ini
       - ./nginx/site/:/usr/share/nginx/html
     networks:
       - lemp-network
@@ -34,7 +34,7 @@ services:
       - ./mysql/storage:/var/lib/mysql
 
   mysql:
-    image: mysql:5.7.23
+    image: mariadb:10.5.8
     container_name: lemp-mysql
     ports:
       - "3306:3306"
