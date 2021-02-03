@@ -9,6 +9,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 /**
  * This is needed for cookie based authentication to encrypt password in
@@ -26,7 +27,7 @@ $i = 0;
  */
 $i++;
 /* Authentication type */
-$cfg['Servers'][$i]['auth_type'] = 'config'; # change to 'cookie' if you want to use cookies
+$cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'lemp-mysql';
 $cfg['Servers'][$i]['user'] = 'root';
